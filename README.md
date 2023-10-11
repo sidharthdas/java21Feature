@@ -4,6 +4,9 @@ Virtual Threads:
 
 ![image](https://github.com/sidharthdas/java21Feature/assets/36167954/6e0660cd-56eb-40b3-891c-12aef867fc84)
 
+VT: Virtual Thread
+PT: Platform Thread
+When any VT is busy working and it takes longer time, it will break the connection with PT as shown in the above picture. So this means the tread can work on different tasks rather than waiting for the current task to be complete.
 
 If processing takes longer time then the treads will not wait.
 

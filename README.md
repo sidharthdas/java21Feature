@@ -13,6 +13,9 @@ VirtualThread[#10031]/runnable@ForkJoinPool-1-worker-2
 VirtualThread[#10031]/runnable@ForkJoinPool-1-worker-7
 ```
 
+![image](https://github.com/sidharthdas/java21Feature/assets/36167954/1f23bab3-afe1-49a6-9af9-1bf9deb6da26)
+
+
 
 Note:
 Virtual thread works in an async way, so if you have a normal Java program like below it may or may not print in the console

@@ -1,5 +1,10 @@
 # java21Feature
 
+Virtual Threads:
+
+![image](https://github.com/sidharthdas/java21Feature/assets/36167954/6e0660cd-56eb-40b3-891c-12aef867fc84)
+
+
 If processing takes longer time then the treads will not wait.
 
 
@@ -12,8 +17,6 @@ millis used to launch 10000vthreads:87ms
 VirtualThread[#10031]/runnable@ForkJoinPool-1-worker-2
 VirtualThread[#10031]/runnable@ForkJoinPool-1-worker-7
 ```
-
-![image](https://github.com/sidharthdas/java21Feature/assets/36167954/1f23bab3-afe1-49a6-9af9-1bf9deb6da26)
 
 
 

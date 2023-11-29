@@ -65,3 +65,65 @@ public static void main(String[] args) throws InterruptedException {
         }
 }
 ```
+
+
+Before java21, at line no 82, when we do Thread.sleep(), it blocks the thread for that many milliseconds, but in java21, the virtual thread cuts the relation and work on other assigned task, and once the milliseconds is passed, it will assign another virtual thread to do the duty. In this scenario, the virtual thread might be the same or different, it completely depends on the JVM.
+
+Execute the below code to see the Thread names
+```
+public class MainClass {
+
+    public static void main(String[] args) throws InterruptedException {
+
+        var t = IntStream.range(0,5)
+                        .mapToObj(x -> Thread.ofVirtual().unstarted(() -> {
+                            if(x == 0) {
+
+                                System.out.println("sid : " + Thread.currentThread());
+                                try {
+                                    Thread.sleep(3000);
+                                } catch (InterruptedException e) {
+                                    throw new RuntimeException(e);
+                                }
+
+                                System.out.println("sid 2 : " + Thread.currentThread());
+                            }
+                            else {
+                                System.out.println("sidharth : " + Thread.currentThread());
+                            }
+
+                        }))
+                                .toList();
+
+        t.forEach(Thread::start);
+        for(Thread t1 : t) {
+            t1.join();
+        }
+
+        //Thread.sleep(3000);
+    }
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

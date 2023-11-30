@@ -105,7 +105,8 @@ public class MainClass {
     }
 ```
 
-sealed class: Parent and child will be in the same package. And sealed class means, only the class can permits the classes who can extend the parent class
+#Sealed class: 
+Parent and child will be in the same package. And sealed class means, only the class can permits the classes who can extend the parent class
 
 ```
 Parent:
@@ -135,7 +136,7 @@ public final class Human extends LivingBeing{
 }
 ```
 
-Instance of :
+#Instance of :
 
 ```
 public class MainClass4 {
@@ -157,6 +158,49 @@ record StudentX(String studentName, String studentAddress) {
 
     public void print() {
         System.out.println("Student name is : " + this.studentName + " and student address is : " + this.studentAddress);
+    }
+}
+```
+
+#Enhanced Switch Case:
+
+```
+public class EnhancedSwitchCase {
+
+    public static void main(String[] args) {
+        //Classic Switch test:
+        System.out.println(classicSwitchCase(DayOfWeek.MONDAY));
+        System.out.println(classicSwitchCase(DayOfWeek.SATURDAY));
+
+        //Enhanced Switch test:
+        System.out.println(enhancedSwitchCase(DayOfWeek.MONDAY));
+        System.out.println(enhancedSwitchCase(DayOfWeek.SATURDAY));
+    }
+
+
+    public static int enhancedSwitchCase(DayOfWeek dayOfWeek) {
+        return switch (dayOfWeek) {
+            case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> 16;
+            case SATURDAY, SUNDAY -> 24;
+        };
+    }
+
+    public static int classicSwitchCase(DayOfWeek dayOfWeek) {
+        int time = 0;
+        switch (dayOfWeek) {
+            case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY:
+                time = 16;
+                break;
+
+            case SATURDAY, SUNDAY:
+                time = 24;
+                break;
+
+            default:
+                throw new RuntimeException("Not valid");
+        }
+
+        return time;
     }
 }
 ```

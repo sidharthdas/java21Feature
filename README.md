@@ -1,5 +1,6 @@
 # java21Feature
 
+
 Virtual Threads:
 
 ![image](https://github.com/sidharthdas/java21Feature/assets/36167954/6e0660cd-56eb-40b3-891c-12aef867fc84)
@@ -103,6 +104,63 @@ public class MainClass {
         //Thread.sleep(3000);
     }
 ```
+
+sealed class: Parent and child will be in the same package. And sealed class means, only the class can permits the classes who can extend the parent class
+
+```
+Parent:
+public sealed class LivingBeing permits Human, Animal{
+    public void eat() {
+        System.out.println("Living being eats");
+    }
+}
+
+Child:
+public final class Animal extends LivingBeing {
+
+    @Override
+    public void eat() {
+        System.out.println("In Aminal");
+        super.eat();
+    }
+}
+
+public final class Human extends LivingBeing{
+
+    @Override
+    public void eat() {
+        System.out.println("in human");
+        super.eat();
+    }
+}
+```
+
+Instance of :
+
+```
+public class MainClass4 {
+
+    public static void main(String[] args) {
+
+        var studentX = new StudentX("Sidharth", "Odisha");
+
+        if (studentX instanceof StudentX x) {
+            x.print();
+        }
+    }
+}
+
+record StudentX(String studentName, String studentAddress) {
+    public StudentX(String studentName) {
+        this(studentName, null);
+    }
+
+    public void print() {
+        System.out.println("Student name is : " + this.studentName + " and student address is : " + this.studentAddress);
+    }
+}
+```
+
 
 
 

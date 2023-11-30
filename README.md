@@ -105,7 +105,7 @@ public class MainClass {
     }
 ```
 
-#Sealed class: 
+# Sealed class: 
 Parent and child will be in the same package. And sealed class means, only the class can permits the classes who can extend the parent class
 
 ```
@@ -136,7 +136,7 @@ public final class Human extends LivingBeing{
 }
 ```
 
-#Instance of :
+# Instance of :
 
 ```
 public class MainClass4 {
@@ -162,7 +162,7 @@ record StudentX(String studentName, String studentAddress) {
 }
 ```
 
-#Enhanced Switch Case:
+# Enhanced Switch Case:
 
 ```
 public class EnhancedSwitchCase {

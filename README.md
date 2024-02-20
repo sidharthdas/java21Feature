@@ -207,6 +207,58 @@ public class EnhancedSwitchCase {
 
 
 
+# Poducer Consumer using java threading:
+
+```
+public class MainClass {
+
+    static List<String> l = new ArrayList<>();
+    static int counter = 0;
+    public static void main(String[] args) throws InterruptedException {
+        Thread t1 = new Thread(() -> {
+            while(true) {
+                l.add ("Sidharth - " + counter);
+                counter++;
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        Thread t2 = new Thread(() -> {
+            int count = 0;
+
+            while(true) {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                if(count != counter) {
+                    System.out.println(l);
+                    count = counter;
+                }
+
+            }
+        });
+
+        t1.start();
+        t2.start();
+
+        t1.join();
+        t2.join();
+
+
+
+
+    }
+}
+```
+
+
+
 
 
 
